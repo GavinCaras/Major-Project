@@ -3,24 +3,25 @@
 // Billiard Game
 
 //globals
-Ball[] balls;
+Ball ball1, ball2;
 
 void setup() {
-  fullScreen();
+  fullScreen(P3D);
   smooth();
   
-  balls = new Ball[15];
-  
-  for (int i=0; i<balls.length; i++){
-    ballX[i] += dxBall[i];
-    ballY[i] += dyBall[i];
-  }    
+  ball1 = new Ball(width/2, height/2, 10, -7, 50);
+  ball2 = new Ball(100, 100, 2, 3, 50);
+ 
 }
 
 
 void draw() {
   background(35, 121, 62);   
+    ball1.move();
+    ball2.move();
     
-    ball[i].display();
+    ball1.collisionCheckWith(ball2);
     
+    ball1.display();
+    ball2.display();
 }

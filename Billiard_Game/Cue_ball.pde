@@ -1,3 +1,3 @@
-//class CueBall extends Balls {
+class Cue_ball extends Ball {
 
-//}
+}
