@@ -1,19 +1,18 @@
 class Ball {
   //variables
-  float x, y, dy, dx, r;
+  float[] ballX, ballY, dxBall, dyBall, ballRadius;
+  float ballSize;
   
   //constructor(s)
-  Ball(float _x, float _y, float _dx, float _dy, float_r) {
-    x = _x;
-    y = _y;
-    dx = _dx;
-    dy = _dy;
-    r = _r;
+  Ball(float _ballX, float _ballY, float _dxBall, float _dyBall, float _ ballRadius) {
+    ballX = _x;
+    ballY = _y;
+    dxBall = _dx;
+    dyBall = _dy;
+    ballRadius = _r;
   }
-  
+}  
   //behaviour(s)
   void display() {
-    point(x,y);
+    ellipse(x, y, 20, 20);
   }
-
-}
