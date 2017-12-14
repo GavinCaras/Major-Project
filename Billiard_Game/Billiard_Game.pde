@@ -2,7 +2,7 @@
 // Major Project
 // Billiard Game
 
-//globals
+//Globals
 Ball ball1, ball2;
 
 void setup() {

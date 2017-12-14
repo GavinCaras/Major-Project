@@ -1,8 +1,8 @@
 class Ball {
-  //variables
+  //Variables
   float x, y, dx, dy, radius;
 
-  //constructor(s)
+  //Constructor(s)
   Ball(float x, float y, float dx, float dy, float radius) {
     this.x = x;
     this.y = y;
@@ -11,7 +11,7 @@ class Ball {
     this.radius = radius;
   }
 
-  //behaviour(s)
+  //Behaviour(s)
   void display() {
     ellipse(x, y, radius*1.5, radius*1.5);
   }

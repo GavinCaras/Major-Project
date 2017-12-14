@@ -1,15 +1,15 @@
 class CueBall extends Ball {
-  //variables
+  //Variables
   float x, y, dx, dy, radius;
   color c;
 
-  //constructor(s)
+  //Constructor(s)
   CueBall(float x, float y, float dx, float dy, float radius, color _c) {
     super(x, y, dx, dy, radius);
     c = _c;
   }
 
-  //behaviour(s)
+  //Behaviour(s)
   void display() {
     ellipse(x, y, radius*1.5, radius*1.5);
     fill(c);
@@ -44,7 +44,7 @@ class CueBall extends Ball {
     float distanceBetweenBalls = dist(x, y, otherBall.x, otherBall.y);
     float sumOfRadii = radius + otherBall.radius;
 
-    if (distanceBetweenBalls <= sumOfRadii) { //collision!
+    if (distanceBetweenBalls <= sumOfRadii) { 
       float tempdx = dx;
       float tempdy = dy;
 
