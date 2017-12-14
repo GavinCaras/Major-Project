@@ -3,7 +3,6 @@
 // Billiard Game
 
 //Globals
-//Ball CueBall, ball1;
 Ball[] balls;
 
 void setup() {
@@ -11,9 +10,7 @@ void setup() {
   frameRate(60);
   smooth();
 
-  balls = new Ball[15];
-  for (int i=0; i<balls.length; i++) {
-  }  
+  //balls.add(new Ball    
   //CueBall = new Ball(width/2, height/2, 10, -7, 50);
   //ball1 = new Ball(100, 100, 2, 3, 50);
 }
@@ -33,10 +30,11 @@ void draw() {
   //CueBall.display();
   //ball1.display();
 
+  balls = new Ball[15];
+  
   for (int i=0; i<balls.length; i++) {
     balls[i].display();
     balls[i].move();
     balls[i].bounceTheBall();
-    balls[i].collisionCheckWith(CueBall yellowBall);
   }
 }

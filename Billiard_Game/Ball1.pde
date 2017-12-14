@@ -39,21 +39,20 @@ class yellowBall extends Ball {
     }
   }
 
-  void collisionCheckWith(yellowBall balls) {
-    super.collisionCheckWith(balls);
+  void collisionCheckWith(yellowBall CueBall) {
 
-    float distanceBetweenBalls = dist(x, y, balls.x, balls.y);
-    float sumOfRadii = radius + balls.radius;
+    float distanceBetweenBalls = dist(x, y, CueBall.x, CueBall.y);
+    float sumOfRadii = radius + CueBall.radius;
 
     if (distanceBetweenBalls <= sumOfRadii) { 
       float tempdx = dx;
       float tempdy = dy;
 
-      dx = balls.dx;
-      dy = balls.dy;
+      dx = CueBall.dx;
+      dy = CueBall.dy;
 
-      balls.dx = tempdx;
-      balls.dy = tempdy;
+      CueBall.dx = tempdx;
+      CueBall.dy = tempdy;
     }
   }
 }

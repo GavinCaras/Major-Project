@@ -31,20 +31,4 @@ class Ball {
       dy *= -1;
     }
   }
-
-  void collisionCheckWith(CueBall balls) {
-    float distanceBetweenBalls = dist(x, y, balls.x, balls.y);
-    float sumOfRadii = radius + balls.radius;
-
-    if (distanceBetweenBalls <= sumOfRadii) { //collision!
-      float tempdx = dx;
-      float tempdy = dy;
-
-      dx = balls.dx;
-      dy = balls.dy;
-
-      balls.dx = tempdx;
-      balls.dy = tempdy;
-    }
-  }
 }
