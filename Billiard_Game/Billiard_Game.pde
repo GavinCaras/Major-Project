@@ -7,6 +7,7 @@ Ball ball1, ball2;
 
 void setup() {
   fullScreen(P3D);
+  frameRate(60);
   smooth();
   
   ball1 = new Ball(width/2, height/2, 10, -7, 50);
@@ -16,12 +17,17 @@ void setup() {
 
 
 void draw() {
-  background(35, 121, 62);   
-    ball1.move();
+  background(35, 121, 62); 
+  fill(0); 
+  noStroke(); 
+  ellipseMode(CORNER); 
+  ellipse(-55, -40, 140, 135);
+  
+    CueBall.move();
     ball2.move();
     
-    ball1.collisionCheckWith(ball2);
+    CueBall.collisionCheckWith(ball2);
     
-    ball1.display();
+    CueBall.display();
     ball2.display();
 }
