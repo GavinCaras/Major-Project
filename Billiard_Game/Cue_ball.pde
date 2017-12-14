@@ -38,21 +38,21 @@ class CueBall extends Ball {
     }
   }
 
-  void collisionCheckWith(CueBall otherBall) {
-    super.collisionCheckWith(otherBall);
+  void collisionCheckWith(CueBall Ball) {
+    super.collisionCheckWith(Ball);
 
-    float distanceBetweenBalls = dist(x, y, otherBall.x, otherBall.y);
-    float sumOfRadii = radius + otherBall.radius;
+    float distanceBetweenBalls = dist(x, y, Ball.x, Ball.y);
+    float sumOfRadii = radius + Ball.radius;
 
     if (distanceBetweenBalls <= sumOfRadii) { 
       float tempdx = dx;
       float tempdy = dy;
 
-      dx = otherBall.dx;
-      dy = otherBall.dy;
+      dx = Ball.dx;
+      dy = Ball.dy;
 
-      otherBall.dx = tempdx;
-      otherBall.dy = tempdy;
+      Ball.dx = tempdx;
+      Ball.dy = tempdy;
     }
   }
 }
