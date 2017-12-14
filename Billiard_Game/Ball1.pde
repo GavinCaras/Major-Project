@@ -1,29 +1,36 @@
-//Parent Class
-class Ball {
+//Child Class
+class yellowBall extends Ball {
   //Variables
   float x, y, dx, dy, radius;
+  color c;
 
   //Constructor(s)
-  Ball(float x, float y, float dx, float dy, float radius) {
-    this.x = x;
-    this.y = y;
-    this.dx = dx;
-    this.dy = dy;
-    this.radius = radius;
+  yellowBall(float x, float y, float dx, float dy, float radius, color _c) {
+    super(x, y, dx, dy, radius);
+    c = _c;
   }
 
   //Behaviour(s)
   void display() {
     ellipse(x, y, radius*1.5, radius*1.5);
+    fill(c);
+  }
+
+  void ownColor() {
+    c = color(246, 255, 3);
   }
 
   void move() {
+    super.move();
     x += dx;
     y += dy;
 
     bounceTheBall();
   }
+
   void bounceTheBall() {
+    super.bounceTheBall();
+
     if ( (x+radius > width) || (x - radius < 0) ) {
       dx *= -1;
     }
@@ -32,11 +39,13 @@ class Ball {
     }
   }
 
-  void collisionCheckWith(CueBall balls) {
+  void collisionCheckWith(yellowBall balls) {
+    super.collisionCheckWith(balls);
+
     float distanceBetweenBalls = dist(x, y, balls.x, balls.y);
     float sumOfRadii = radius + balls.radius;
 
-    if (distanceBetweenBalls <= sumOfRadii) { //collision!
+    if (distanceBetweenBalls <= sumOfRadii) { 
       float tempdx = dx;
       float tempdy = dy;
 

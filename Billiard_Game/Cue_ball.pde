@@ -1,3 +1,4 @@
+//Child Class
 class CueBall extends Ball {
   //Variables
   float x, y, dx, dy, radius;
@@ -38,21 +39,21 @@ class CueBall extends Ball {
     }
   }
 
-  void collisionCheckWith(CueBall Ball) {
-    super.collisionCheckWith(Ball);
+  void collisionCheckWith(CueBall balls) {
+    super.collisionCheckWith(balls);
 
-    float distanceBetweenBalls = dist(x, y, Ball.x, Ball.y);
-    float sumOfRadii = radius + Ball.radius;
+    float distanceBetweenBalls = dist(x, y, balls.x, balls.y);
+    float sumOfRadii = radius + balls.radius;
 
     if (distanceBetweenBalls <= sumOfRadii) { 
       float tempdx = dx;
       float tempdy = dy;
 
-      dx = Ball.dx;
-      dy = Ball.dy;
+      dx = balls.dx;
+      dy = balls.dy;
 
-      Ball.dx = tempdx;
-      Ball.dy = tempdy;
+      balls.dx = tempdx;
+      balls.dy = tempdy;
     }
   }
 }
