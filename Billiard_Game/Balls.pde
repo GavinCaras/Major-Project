@@ -37,81 +37,20 @@ class Ball {
     }
   }
 
-  void ball1CollisionCheckWith (ball2 ball3) {
-    float distanceBetweenBalls = dist(x, y, ball2.x, ball2.y);
-    float distanceBetweenBalls = dist(x, y, ball3.x, ball3.y);
-    
-    float sumOfRadii = radius + ball2.radius;
-    float sumOfRadii = radius + ball3.radius;
+  void collisionCheckWith (Ball otherBall) {
+    float distanceBetweenBalls = dist(x, y, otherBall.x, otherBall.y);
+    float sumOfRadii = radius + otherBall.radius;                                                            
 
-    if (distanceBetweenBalls <= sumOfRadii) { //collision!
+    if (distanceBetweenBalls <= sumOfRadii) {
       float tempdx = dx;
       float tempdy = dy;
       
-      dx = ball2.dx;
-      dy = ball2.dy;
-
-      dx = ball3.dx;
-      dy = ball3.dy;
-
-      ball2.dx = tempdx;
-      ball2.dy = tempdy;
+      dx = otherBall.dx;
+      dy = otherBall.dy;
       
-      ball3.dx = tempdx;
-      ball3.dx = tempdx;
+      otherBall.dx = tempdx;
+      otherBall.dy = tempdy;
       
     }
   }
-
-  void ball2CollisionCheckWith (ball3 ball1) {
-    float distanceBetweenBalls = dist(x, y, ball3.x, ball3.y);
-    float distanceBetweenBalls = dist(x, y, ball1.x, ball1.y);
-    
-    float sumOfRadii = radius + ball3.radius;
-    float sumOfRadii = radius + ball1.radius;
-
-    if (distanceBetweenBalls <= sumOfRadii) { 
-      float tempdx = dx;
-      float tempdy = dy;
-
-      dx = ball3.dx;
-      dy = ball3.dy;
-      dx = ball1.dx;
-      dx = ball1.dy;
-
-      ball3.dx = tempdx;
-      ball3.dy = tempdy;
-      ball1.dx = tempdx;
-      ball1.dy = tempdy;
-    }
-  }
-
-  void ball3CollisionCheckWith (ball1 ball2) {
-    float distanceBetweenBalls = dist(x, y, ball1.x, ball1.y);
-    float distanceBetweenBalls = dist(x, y, ball2.x, ball2.y);
-    
-    float sumOfRadii = radius + ball1.radius;
-    float sumOfRadii = radius + ball2.radius;
-
-    if (distanceBetweenBalls <= sumOfRadii) { 
-      float tempdx = dx;
-      float tempdy = dy;
-
-      dx = ball1.dx;
-      dy = ball1.dy;
-      dx = ball2.dx;
-      dy = ball2.dy;
-
-      ball1.dx = tempdx;
-      ball1.dy = tempdy;
-      ball2.dx = tempdx;
-      ball2.dy = tempdy;
-    }
-  }
-
-
-
-
-
-
 }
