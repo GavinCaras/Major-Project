@@ -19,10 +19,24 @@ void setup() {
 
 void draw() {
   background(35, 121, 62); 
+  
+  // The billiard table's socket
   fill(0); 
   noStroke(); 
   ellipseMode(CORNER); 
-  ellipse(-55, -40, 140, 135);
+  
+  //top left
+  ellipse(-55, -50, 140, 135);
+  //top middle
+  ellipse(700, -75, 140, 135);
+  //top right
+  ellipse(1510, -50, 140, 135);
+  //bottom left
+  ellipse(-60, 800, 140, 135);
+  //bottom middle
+  ellipse(700, 840, 140, 135);
+  //bottom right
+  ellipse(1500, 820, 140, 135);
 
   ball1.move();
   ball2.move();
