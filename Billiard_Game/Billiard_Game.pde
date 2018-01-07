@@ -69,20 +69,6 @@ void draw() {
   //bottom right
   ellipse(1280, 690, 140, 135);
 
-  //  ball1.move();
-  //  ball2.move();
-  //  ball3.move();
-
-  //  ball1.collisionCheckWith(ball2);
-  //  ball1.collisionCheckWith(ball3);
-
-  //  ball2.collisionCheckWith(ball1);
-  //  ball2.collisionCheckWith(ball3);
-
-  //  ball3.collisionCheckWith(ball1);
-  //  ball3.collisionCheckWith(ball2);
-
-
   c.display();
   ball2.display();
   ball3.display();

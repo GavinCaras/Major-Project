@@ -1,10 +1,10 @@
-class Ball {
+class Circle {
   //Variables
   float x, y, dx, dy, radius;
   int r, g, b;
 
   //Constructor(s)
-  Ball(float _x, float _y, float _dx, float _dy, float _radius, int _r, int _g, int _b) {
+  Circle(float _x, float _y, float _dx, float _dy, float _radius, int _r, int _g, int _b) {
     this.x = _x;
     this.y = _y;
     this.dx = _dx;
@@ -21,4 +21,5 @@ class Ball {
     fill(r, g, b);
     ellipse(x, y, radius*1.5, radius*1.5);
   }
+  
 }
