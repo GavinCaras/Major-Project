@@ -5,14 +5,14 @@ class Ball {
 
   //Constructor(s)
   Ball(float _x, float _y, float _dx, float _dy, float _radius, int _r, int _g, int _b) {
-    x = _x;
-    y = _y;
-    dx = _dx;
-    dy = _dy;
-    radius = _radius;
-    r = _r;
-    g = _g;
-    b = _b;
+    this.x = _x;
+    this.y = _y;
+    this.dx = _dx;
+    this.dy = _dy;
+    this.radius = _radius;
+    this.r = _r;
+    this.g = _g;
+    this.b = _b;
   }
 
   //Behaviour(s)   

@@ -3,7 +3,8 @@
 // Billiard Game
 
 //Globals
-Ball ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, ball10, ball11, ball12, ball13, ball14, ball15, ball16;
+Ball ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, ball10, ball11, ball12, ball13, ball14, ball15, ball16;
+Cue c;
 
 void setup() {
   fullScreen();
@@ -11,7 +12,9 @@ void setup() {
   smooth();
 
   //Cue/White ball
-  ball1 = new Ball(200, 350, 2, -7, 50, 255, 255, 255);
+  //ball1 = new Ball(200, 350, 2, -7, 50, 255, 255, 255);
+  c = new Cue(200, 350, 2, -7, 50, 255, 255, 255);
+  
   //Black ball
   ball2 = new Ball(943, 420, 10, 3, 50, 0, 0, 0);
   //Yellow ball
@@ -80,7 +83,7 @@ void draw() {
   //  ball3.collisionCheckWith(ball2);
 
 
-  ball1.display();
+  c.display();
   ball2.display();
   ball3.display();
   ball4.display();
