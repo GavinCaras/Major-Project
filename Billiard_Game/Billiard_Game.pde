@@ -48,7 +48,6 @@ void setup() {
 
 void draw() {
   background(35, 121, 62); 
-
   // The billiard table's socket
   fill(0); 
   noStroke(); 
