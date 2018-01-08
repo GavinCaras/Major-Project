@@ -2,7 +2,7 @@
 // Major Project
 // Billiard Game
 
-//Globals
+//Global Variables
 Ball ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, ball10, ball11, ball12, ball13, ball14, ball15, ball16;
 Cue c;
 
@@ -11,10 +11,8 @@ void setup() {
   frameRate(60);
   smooth();
 
-  //Cue/White ball
-  //ball1 = new Ball(200, 350, 2, -7, 50, 255, 255, 255);
-  c = new Cue(200, 350, 2, -7, 50, 255, 255, 255);
-  
+  //Cue/White ball 
+  c = new Cue(200, 350, 2, -7, 50, 255, 255, 255);  
   //Black ball
   ball2 = new Ball(943, 420, 10, 3, 50, 0, 0, 0);
   //Yellow ball
@@ -46,12 +44,16 @@ void setup() {
   //Indigo
   ball16 = new Ball(1080, 252, 7, 6, 50, 75, 0, 130);
   
-  
+  location = new PVector(200, 350);
+  velocity = new PVector(0, 0);
+  acceleration = new PVector(0, 0);
+  direction = new PVector(1, 0);
 }
 
 void draw() {
+  //The billiard board
   background(35, 121, 62); 
-  // The billiard table's socket
+  //The billiard table's socket
   fill(0); 
   noStroke(); 
   ellipseMode(CORNER); 
@@ -61,13 +63,13 @@ void draw() {
   //top middle
   ellipse(650, -75, 140, 135);
   //top right
-  ellipse(1280, -50, 140, 135);
+  ellipse(1510, -50, 140, 135);
   //bottom left
-  ellipse(-55, 690, 140, 135);
+  ellipse(-60, 800, 140, 135);
   //bottom middle
-  ellipse(650, 710, 140, 135);
+  ellipse(650, 840, 140, 135);
   //bottom right
-  ellipse(1280, 690, 140, 135);
+  ellipse(1510, 820, 140, 135);
 
   c.display();
   ball2.display();

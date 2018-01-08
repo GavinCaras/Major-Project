@@ -1,11 +1,11 @@
-class Cue extends Circle {
+class Cue  {
   //Variables
+  PVector velocity, acceleration, direction, location;
   float x, y, dx, dy, radius;
   int r, g, b;
 
   //Constructor(s)
   Cue(float _x, float _y, float _dx, float _dy, float _radius, int _r, int _g, int _b) {
-    super(_x, _y, _dx, _dy, _radius, _r, _g, _b);
     x = _x;
     y = _y;
     dx = _dx;
@@ -21,10 +21,10 @@ class Cue extends Circle {
     ellipse(x, y, radius *1.5, radius *1.5);
   }
   
-  void keyPressed() {
+  void moveCue() {
     if (keyPressed) {
-      if (key == 'q' || key == 'Q') {
-        //______________________
+      if (key == ' ') {
+        //______________
       }
     }
   }
