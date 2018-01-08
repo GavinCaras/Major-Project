@@ -12,7 +12,7 @@ void setup() {
   smooth();
 
   //Cue/White ball 
-  c = new Cue(200, 350, 2, -7, 50, 255, 255, 255);  
+  c = new Cue(50, 255, 255, 255);  
   //Black ball
   ball2 = new Ball(943, 420, 10, 3, 50, 0, 0, 0);
   //Yellow ball
@@ -44,10 +44,6 @@ void setup() {
   //Indigo
   ball16 = new Ball(1080, 252, 7, 6, 50, 75, 0, 130);
   
-  location = new PVector(200, 350);
-  velocity = new PVector(0, 0);
-  acceleration = new PVector(0, 0);
-  direction = new PVector(1, 0);
 }
 
 void draw() {
@@ -61,15 +57,15 @@ void draw() {
   //top left
   ellipse(-55, -50, 140, 135);
   //top middle
-  ellipse(650, -75, 140, 135);
+  ellipse(610, -75, 140, 135);
   //top right
-  ellipse(1510, -50, 140, 135);
+  ellipse(1280, -50, 140, 135);
   //bottom left
-  ellipse(-60, 800, 140, 135);
+  ellipse(-55, 690, 140, 135);
   //bottom middle
-  ellipse(650, 840, 140, 135);
+  ellipse(610, 710, 140, 135);
   //bottom right
-  ellipse(1510, 820, 140, 135);
+  ellipse(1280, 690, 140, 135);
 
   c.display();
   ball2.display();
@@ -87,4 +83,9 @@ void draw() {
   ball14.display();
   ball15.display();
   ball16.display();
+  
+  c.moveCue();
+  
+  c.keyPressed();
+   
 }

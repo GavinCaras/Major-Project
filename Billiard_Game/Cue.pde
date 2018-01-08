@@ -1,15 +1,18 @@
-class Cue  {
+class Cue {
   //Variables
   PVector velocity, acceleration, direction, location;
-  float x, y, dx, dy, radius;
+  float radius;
   int r, g, b;
 
   //Constructor(s)
-  Cue(float _x, float _y, float _dx, float _dy, float _radius, int _r, int _g, int _b) {
-    x = _x;
-    y = _y;
-    dx = _dx;
-    dy = _dy;
+  Cue(float _radius, int _r, int _g, int _b) { 
+
+  //Applying Vector
+   location = new PVector(200/2, 350/2);
+   velocity = new PVector(0, 0);
+   acceleration = new PVector(0, 0);
+   direction = new PVector(1, 0);
+
     radius = _radius;
     r = _r;
     g = _g;
@@ -17,15 +20,29 @@ class Cue  {
   }
   //Behaviour(s)
   void display() {
-    fill(r, g, b);
-    ellipse(x, y, radius *1.5, radius *1.5);
+    pushMatrix();
+     translate(location.x, location.y);
+     fill(r, g, b);
+     ellipse(location.x, location.y, radius *1.5, radius *1.5);
+    popMatrix();
   }
-  
+
   void moveCue() {
-    if (keyPressed) {
-      if (key == ' ') {
-        //______________
-      }
+    location.add(velocity);
+    velocity.add(acceleration);
+    acceleration.set(0, 0);
+    
+    //friction
+    velocity.div(1.100);
+  }
+
+  void keyPressed() {
+    if (key == ' ') {
+      PVector poke = new PVector();
+      poke = direction.copy();
+      poke.normalize();
+      poke.mult(1.8);
+      acceleration = poke;
     }
   }
 }
