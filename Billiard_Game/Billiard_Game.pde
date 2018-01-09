@@ -8,6 +8,7 @@ Cue c;
 
 void setup() {
   fullScreen();
+  surface.setResizable(true);
   frameRate(60);
   smooth();
 
@@ -45,6 +46,7 @@ void setup() {
   ball16 = new Ball(1080, 252, 7, 6, 50, 75, 0, 130);
   
 }
+
 
 void draw() {
   //The billiard board.

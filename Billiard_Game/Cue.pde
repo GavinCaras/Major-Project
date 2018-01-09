@@ -8,7 +8,7 @@ class Cue {
   Cue(float _radius, int _r, int _g, int _b) { 
 
     //Applying Vectors.
-    location = new PVector(200/2, 350/2);
+    location = new PVector(130/2, 350/2);
     velocity = new PVector(0, 0);
     acceleration = new PVector(0, 0);
     direction = new PVector(1, 0);
