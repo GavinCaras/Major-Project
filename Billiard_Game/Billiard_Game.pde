@@ -8,7 +8,6 @@ Cue c;
 
 void setup() {
   fullScreen();
-  surface.setResizable(true);
   frameRate(60);
   smooth();
 
@@ -60,16 +59,16 @@ void draw() {
   //top left
   ellipse(-55, -50, 140, 135);
   //top middle
-  ellipse(610, -75, 140, 135);
+  ellipse(700, -75, 140, 135);
   //top right
-  ellipse(1280, -50, 140, 135);
+  ellipse(1510, -50, 140, 135);
   //bottom left
-  ellipse(-55, 690, 140, 135);
+  ellipse(-60, 800, 140, 135);
   //bottom middle
-  ellipse(610, 710, 140, 135);
+  ellipse(700, 840, 140, 135);
   //bottom right
-  ellipse(1280, 690, 140, 135);
-
+  ellipse(1500, 820, 140, 135);
+  
   c.display();
   ball2.display();
   ball3.display();
@@ -89,5 +88,9 @@ void draw() {
   
   c.moveCue();
   
-  c.keyPressed();
+}
+
+
+void keyPressed() {
+  c.controlKeyPressed();
 }

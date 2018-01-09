@@ -9,7 +9,7 @@ class Cue {
 
     //Applying Vectors.
     location = new PVector(130, 350);
-    velocity = new PVector(0, 0);
+    velocity = new PVector (0, 0);
     acceleration = new PVector(0, 0);
     direction = new PVector(1, 0);
 
@@ -22,8 +22,10 @@ class Cue {
   void display() {  
     //The Cue ball's coordinates and color.
     pushMatrix();
+    translate(location.x, location.y);
+    stroke(.5);
     fill(r, g, b);
-    ellipse(location.x, location.y, radius *1.5, radius *1.5);
+    ellipse(0, 0, radius *1.5, radius *1.5);
     popMatrix();
   }
 
@@ -39,18 +41,16 @@ class Cue {
     //Friction of the Cue to slowly stop.
     velocity.div(1.100);
     
-    //translated location of the ball.
-    translate(location.x, location.y);
-  
+
   }
 
-  void keyPressed() {
+  void controlKeyPressed() {
     //Normal poke.
     if (key == 'q' || key == 'Q') {
       PVector poke = new PVector();
       poke = direction.copy();
       poke.normalize();
-      poke.mult(1.8);
+      poke.mult(100);
       acceleration = poke;
     }
     //Power poke.
@@ -58,16 +58,16 @@ class Cue {
       PVector poke = new PVector();
       poke = direction.copy();
       poke.normalize();
-      poke.mult(4.8);
+      poke.mult(200);
       acceleration = poke;
     }
   }
 
   void stayCueinscreen() {
-    if ((location.x > width/1.06) || (location.x < 0 )) {
+    if ((location.x + radius >= width/1.06) || (location.x - radius <= 0 )) {
       velocity.x = velocity.x * -1;
     }
-    if ((location.y > height/1.06) || (location.y < 0)) {
+    if ((location.y + radius >= height/1.06) || (location.y - radius <= 0)) {
       velocity.y = velocity.y * -1;
     }
   }
