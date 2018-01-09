@@ -89,7 +89,5 @@ void draw() {
   
   c.moveCue();
   
-  c.stayCueinscreen();
-  
   c.keyPressed();
 }
