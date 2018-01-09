@@ -2,7 +2,7 @@
 // Major Project
 // Billiard Game
 
-//Global Variables
+//Global Variables.
 Ball ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, ball10, ball11, ball12, ball13, ball14, ball15, ball16;
 Cue c;
 
@@ -11,7 +11,7 @@ void setup() {
   frameRate(60);
   smooth();
 
-  //Cue/White ball 
+  //Cue/White ball
   c = new Cue(50, 255, 255, 255);  
   //Black ball
   ball2 = new Ball(943, 420, 10, 3, 50, 0, 0, 0);
@@ -47,9 +47,10 @@ void setup() {
 }
 
 void draw() {
-  //The billiard board
+  //The billiard board.
   background(35, 121, 62); 
-  //The billiard table's socket
+  
+  //The billiard table's socket.
   fill(0); 
   noStroke(); 
   ellipseMode(CORNER); 
@@ -86,6 +87,7 @@ void draw() {
   
   c.moveCue();
   
+  c.stayCueinscreen();
+  
   c.keyPressed();
-   
 }
