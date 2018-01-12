@@ -71,4 +71,27 @@ class Cue {
       velocity.y = velocity.y * -1;
     }
   }
+  
+  void rotate2D(PVector v, float theta) {
+    float m = v.mag();
+    float a = v.heading2D();
+    
+    a += theta;
+  }
+  
+  void drawVector(PVector v, float x, float y, float scale) {
+    pushMatrix();
+    float arrowsize = 4;
+    translate(x,y);
+    stroke(255);
+    
+    rotate(v.heading2D());
+    
+    float len = v.mag()*scale;
+    
+    line(0, 0, len,0);
+    line(len,0,len-arrowsize,+arrowsize/2);
+    line(len,0,len-arrowsize,-arrowsize/2);
+    popMatrix();
+  }
 }
