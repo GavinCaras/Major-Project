@@ -5,6 +5,7 @@
 //Global Variables.
 Ball ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, ball10, ball11, ball12, ball13, ball14, ball15, ball16;
 Cue c;
+boolean arrowLine;
 
 void setup() {
   fullScreen();
@@ -55,19 +56,20 @@ void draw() {
   fill(0); 
   noStroke(); 
   ellipseMode(CORNER); 
+  
 
   //top left
   ellipse(-55, -50, 140, 135);
   //top middle
-  ellipse(700, -75, 140, 135);
+  ellipse(620, -75, 140, 135);
   //top right
-  ellipse(1510, -50, 140, 135);
+  ellipse(1280, -50, 140, 135);
   //bottom left
-  ellipse(-60, 800, 140, 135);
+  ellipse(-60, 690, 140, 135);
   //bottom middle
-  ellipse(700, 840, 140, 135);
+  ellipse(620, 710, 140, 135);
   //bottom right
-  ellipse(1500, 820, 140, 135);
+  ellipse(1280, 690, 140, 135);
   
   c.display();
   ball2.display();
