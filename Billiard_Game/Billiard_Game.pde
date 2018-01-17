@@ -139,8 +139,25 @@ void draw() {
   ball15.moveBalls();
   ball16.moveBalls();
   
+  ball1.ballScreenConstraint();
+  ball2.ballScreenConstraint();
+  ball3.ballScreenConstraint();
+  ball4.ballScreenConstraint();
+  ball5.ballScreenConstraint();
+  ball6.ballScreenConstraint();
+  ball7.ballScreenConstraint();
+  ball8.ballScreenConstraint();
+  ball9.ballScreenConstraint();
+  ball10.ballScreenConstraint();
+  ball11.ballScreenConstraint();
+  ball12.ballScreenConstraint();
+  ball13.ballScreenConstraint();
+  ball14.ballScreenConstraint();
+  ball15.ballScreenConstraint();
+  ball16.ballScreenConstraint();
+  
+  ball1.ballCollisions(ball2);
 }
-
 
 
 void keyPressed() {

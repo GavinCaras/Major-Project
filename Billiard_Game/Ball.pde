@@ -1,13 +1,14 @@
 class Ball  {
   //Variables
-  PVector velocity, acceleration, direction;
+  PVector velocity, acceleration, direction,location;
   float x, y, radius;
   int r, g, b;
 
   //Constructor(s)
   Ball(float _x, float _y, float _radius, int _r, int _g, int _b) {
     
-    //Applying Vectors  
+    //Applying Vectors 
+    location = new PVector(x,y);
     velocity = new PVector (0, 0);
     acceleration = new PVector(0, 0);
     direction = new PVector(1,0);
@@ -22,6 +23,7 @@ class Ball  {
   //Behaviour(s)
   void display() {
     pushMatrix();
+    translate(location.x, location.y);
     stroke(.5);
     fill(r, g, b);
     ellipse(x, y, radius *1.5, radius *1.5);
@@ -30,6 +32,7 @@ class Ball  {
   
   void moveBalls() {
     //Adding Vectors.
+    location.add(velocity);
     velocity.add(acceleration);
     acceleration.set(0, 0);
     
@@ -60,12 +63,27 @@ class Ball  {
   }
   
   void ballScreenConstraint() {
-    if ((x + radius >= width/1.06) || (x - radius <= 0 )) {
+    if ((location.x + radius >= width/1.06) || (location.x - radius <= 0 )) {
       velocity.x = velocity.x * -1;
     }
-    if ((y + radius >= height/1.06) || (y - radius <= 0)) {
+    if ((location.y + radius >= height/1.06) || (location.y - radius <= 0)) {
       velocity.y = velocity.y * -1;
     }
   }
   
+  void ballCollisions(Ball anyBall) {
+    float distanceBetweenBalls = dist(location.x, location.y, anyBall.x, anyBall.y);
+    float sumOfRadii = radius + anyBall.radius;
+    
+    if (distanceBetweenBalls <= sumOfRadii) { 
+      float tempdx = velocity.x;
+      float tempdy = velocity.y;
+      
+      velocity.x = anyBall.velocity.x;
+      velocity.y = anyBall.velocity.y;
+      
+      anyBall.velocity.x = tempdx;
+      anyBall.velocity.y = tempdy;
+    }
+  }  
 }
