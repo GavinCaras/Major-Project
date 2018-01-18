@@ -63,6 +63,7 @@ class Ball  {
   }
   
   void ballScreenConstraint() {
+    //Balls staying on screen
     if ((location.x + radius >= width/1.06) || (location.x - radius <= 0 )) {
       velocity.x = velocity.x * -1;
     }
@@ -72,6 +73,7 @@ class Ball  {
   }
   
   void ballCollisions(Ball anyBall) {
+    //Ball collisions
     float distanceBetweenBalls = dist(location.x, location.y, anyBall.x, anyBall.y);
     float sumOfRadii = radius + anyBall.radius;
     
