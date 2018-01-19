@@ -19,6 +19,7 @@ class Ball {
     g = _g;
     b = _b;
   }
+  
   //Behaviour(s)
   void display() {
     stroke(.5);
