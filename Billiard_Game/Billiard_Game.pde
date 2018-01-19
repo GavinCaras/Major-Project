@@ -1,15 +1,20 @@
-/*Gavin Caras                     Sources: 
+/*
+
+Gavin Caras                       Sources: 
 Major Project                     https://processing.org/examples/circlecollision.html
 Billiard Game                     PVector movement class demo
                                   ballOOPwithCollisionDetection
-/*Controls:
+Controls:
 q or Q for light poke
 w or W for strong poke
 
-/*thing(s) still needs to be done:
--pool stick to target
+Thing(s) still needs to be done:
+-pool stick to target using mouseX & mouseY
 -purple ball collision detection
--pool sockets*/
+-some balls overlapping
+-pool sockets
+
+*/
 
 //Calling the Ball class.
 Ball[] balls = {
@@ -85,7 +90,7 @@ void draw() {
 
 
   //Calling the Ball class collisions:
-  //Ball ------------- #0
+  //Ball -------------------------------------- #0
   balls[0].collisionChecking(balls[1]);
   balls[0].collisionChecking(balls[2]);
   balls[0].collisionChecking(balls[3]);
@@ -101,7 +106,7 @@ void draw() {
   balls[0].collisionChecking(balls[13]);
   balls[0].collisionChecking(balls[14]);
 
-  //Ball ------------- #1
+  //Ball -------------------------------------- #1
   balls[1].collisionChecking(balls[0]);
   balls[1].collisionChecking(balls[2]);
   balls[1].collisionChecking(balls[3]);
@@ -117,7 +122,7 @@ void draw() {
   balls[1].collisionChecking(balls[13]);
   balls[1].collisionChecking(balls[14]);
 
-  //Ball ------------- #2
+  //Ball -------------------------------------- #2
   balls[2].collisionChecking(balls[0]);
   balls[2].collisionChecking(balls[1]);
   balls[2].collisionChecking(balls[3]);
@@ -133,7 +138,7 @@ void draw() {
   balls[2].collisionChecking(balls[13]);
   balls[2].collisionChecking(balls[14]);
 
-  //Ball ------------- #3
+  //Ball -------------------------------------- #3
   balls[3].collisionChecking(balls[0]);
   balls[3].collisionChecking(balls[1]);
   balls[3].collisionChecking(balls[2]);
@@ -149,7 +154,7 @@ void draw() {
   balls[3].collisionChecking(balls[13]);
   balls[3].collisionChecking(balls[14]);
 
-  //Ball ------------- #4
+  //Ball -------------------------------------- #4
   balls[4].collisionChecking(balls[0]);
   balls[4].collisionChecking(balls[1]);
   balls[4].collisionChecking(balls[2]);
@@ -165,7 +170,7 @@ void draw() {
   balls[4].collisionChecking(balls[13]);
   balls[4].collisionChecking(balls[14]);
 
-  //Ball ------------- #5
+  //Ball -------------------------------------- #5
   balls[5].collisionChecking(balls[0]);
   balls[5].collisionChecking(balls[1]);
   balls[5].collisionChecking(balls[2]);
@@ -181,7 +186,7 @@ void draw() {
   balls[5].collisionChecking(balls[13]);
   balls[5].collisionChecking(balls[14]);
 
-  //Ball ------------- #6
+  //Ball -------------------------------------- #6
   balls[6].collisionChecking(balls[0]);
   balls[6].collisionChecking(balls[1]);
   balls[6].collisionChecking(balls[2]);
@@ -197,7 +202,7 @@ void draw() {
   balls[6].collisionChecking(balls[13]);
   balls[6].collisionChecking(balls[14]);
 
-  //Ball ------------- #7
+  //Ball -------------------------------------- #7
   balls[7].collisionChecking(balls[0]);
   balls[7].collisionChecking(balls[1]);
   balls[7].collisionChecking(balls[2]);
@@ -213,7 +218,7 @@ void draw() {
   balls[7].collisionChecking(balls[13]);
   balls[7].collisionChecking(balls[14]);
 
-  //Ball ------------- #8
+  //Ball -------------------------------------- #8
   balls[8].collisionChecking(balls[0]);
   balls[8].collisionChecking(balls[1]);
   balls[8].collisionChecking(balls[2]);
@@ -229,7 +234,7 @@ void draw() {
   balls[8].collisionChecking(balls[13]);
   balls[8].collisionChecking(balls[14]);
 
-  //Ball ------------- #9
+  //Ball -------------------------------------- #9
   balls[9].collisionChecking(balls[0]);
   balls[9].collisionChecking(balls[1]);
   balls[9].collisionChecking(balls[2]);
@@ -245,7 +250,7 @@ void draw() {
   balls[9].collisionChecking(balls[13]);
   balls[9].collisionChecking(balls[14]);
 
-  //Ball ------------- #10
+  //Ball -------------------------------------- #10
   balls[10].collisionChecking(balls[0]);
   balls[10].collisionChecking(balls[1]);
   balls[10].collisionChecking(balls[2]);
@@ -261,7 +266,7 @@ void draw() {
   balls[10].collisionChecking(balls[13]);
   balls[10].collisionChecking(balls[14]);
 
-  //Ball ------------- #11
+  //Ball -------------------------------------- #11
   balls[11].collisionChecking(balls[0]);
   balls[11].collisionChecking(balls[1]);
   balls[11].collisionChecking(balls[2]);
@@ -277,7 +282,7 @@ void draw() {
   balls[11].collisionChecking(balls[13]);
   balls[11].collisionChecking(balls[14]);
 
-  //Ball ------------- #12
+  //Ball -------------------------------------- #12
   balls[12].collisionChecking(balls[0]);
   balls[12].collisionChecking(balls[1]);
   balls[12].collisionChecking(balls[2]);
@@ -293,7 +298,7 @@ void draw() {
   balls[12].collisionChecking(balls[13]);
   balls[12].collisionChecking(balls[14]);
 
-  //Ball ------------- #13
+ //Ball -------------------------------------- #13
   balls[13].collisionChecking(balls[0]);
   balls[13].collisionChecking(balls[1]);
   balls[13].collisionChecking(balls[2]);
@@ -309,7 +314,7 @@ void draw() {
   balls[13].collisionChecking(balls[12]);
   balls[13].collisionChecking(balls[14]);
 
-  //Ball ------------- #14
+  //Ball -------------------------------------- #14
   balls[14].collisionChecking(balls[0]);
   balls[14].collisionChecking(balls[1]);
   balls[14].collisionChecking(balls[2]);

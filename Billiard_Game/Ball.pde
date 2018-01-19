@@ -103,7 +103,8 @@ class Ball {
         new PVector(), new PVector()
       };
 
-       //
+       /*bHold[0].location.x and bHold[0].location.y will put in the condition
+       automatically.*/
       bHold[1].x  = cosine * distanceVect.x + sine * distanceVect.y;
       bHold[1].y  = cosine * distanceVect.y - sine * distanceVect.x;
 
