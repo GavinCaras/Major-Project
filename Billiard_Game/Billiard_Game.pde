@@ -9,54 +9,97 @@
 ///balls stay on screen.
 
 //Global Variables.
-Ball ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, ball10, ball11, ball12, ball13, ball14, ball15, ball16;
-//Cue c;
+Ball[] balls = {
+  
+  //Cue Ball--- #0
+  new Ball(130, 350, 50, 255, 255, 255),
+  
+  //Black Ball--- #1
+  new Ball(943, 420, 50, 0, 0, 0),
+  
+  //Yellow ball--- #2
+  new Ball(800, 350, 50, 255, 242, 0),
+  
+  //Maroon ball--- #3
+  new Ball(870, 390, 50, 128, 0, 0),
+  
+  //Peach ball--- #4
+  new Ball(870, 310, 50, 255, 218, 185),
+  
+  //Green ball--- #5
+  new Ball(943, 342, 50, 50, 205, 50),
+  
+  //Purple ball--- #6
+  new Ball(935, 265, 50, 128, 0, 128),
+  
+  //Red ball--- #7
+  new Ball(1002, 220, 50, 255, 0, 0),
+  
+  //Blue ball--- #8
+  new Ball(1010, 300, 50, 0, 0, 225),
+  
+  //Orange ball--- #9
+  new Ball(1010, 380, 50, 255, 165, 0),
+  
+  //Light Brown ball--- #10
+  new Ball(1010, 460, 50, 165, 42, 42),
+  
+  //Pink--- #11
+  new Ball(1072, 175, 50, 255, 105, 180),
+  
+  //Light Blue--- #12
+  new Ball(1085, 490, 50, 0, 191, 255),
+  
+  //Olive Green--- #13
+  new Ball(1085, 410, 50, 128, 128, 0),
+  
+  //Brown--- #14
+  new Ball(1085, 330, 50, 139, 69, 19),
+  
+  //Indigo--- #15
+  new Ball(1080, 252, 50, 75, 0, 130),
+};
+
 
 void setup() {
-  fullScreen();
-  frameRate(60);
-  smooth();
-
   
-  //Cue Ball
-  ball1 = new Ball(130, 350, 50, 255, 255, 255);
-  //Black Ball
-  ball2 = new Ball(943, 420, 50, 0, 0, 0);
-  //Yellow ball
-  ball3 = new Ball(800, 350, 50, 255, 242, 0);
-  //Maroon ball
-  ball4 = new Ball(870, 390, 50, 128, 0, 0);
-  //Peach ball
-  ball5 = new Ball(870, 310, 50, 255, 218, 185); 
-  //Green ball
-  ball6 = new Ball(943, 342, 50, 50, 205, 50);
-  //Purple ball
-  ball7 = new Ball(935, 265, 50, 128, 0, 128);
-  //Red ball
-  ball8 = new Ball(1002, 220, 50, 255, 0, 0);
-  //Blue ball
-  ball9 = new Ball(1010, 300, 50, 0, 0, 225);
-  //Orange
-  ball10 = new Ball(1010, 380, 50, 255, 165, 0);
-  //Light Brown
-  ball11 = new Ball(1010, 460, 50, 165, 42, 42);
-  //Pink
-  ball12 = new Ball(1072, 175, 50, 255, 105, 180);
-  //Light Blue
-  ball13 = new Ball(1085, 490, 50, 0, 191, 255);
-  //Olive Green
-  ball14 = new Ball(1085, 410, 50, 128, 128, 0);
-  //Brown
-  ball15 = new Ball(1085, 330, 50, 139, 69, 19);
-  //Indigo
-  ball16 = new Ball(1080, 252, 50, 75, 0, 130);
-  
+ fullScreen();
+ frameRate(60);
+ noCursor();
+ smooth();
 }
+  
+
 
 
 void draw() {
   //The billiard board.
   background(35, 121, 62); 
+  
+  //Calling the Balls class functions
+  for (Ball billiardBalls : balls) {
+    billiardBalls.move();
+    billiardBalls.display();
+    billiardBalls.ballscreenConstraint();
+  }
+  
+  //Calling the Ball class collisions
+  //Ball ---- #0
+  balls[0].checkCollision(balls[1]);
+  balls[0].checkCollision(balls[2]);
+  balls[0].checkCollision(balls[3]);
+  balls[0].checkCollision(balls[4]);
+  balls[0].checkCollision(balls[5]);
+  balls[0].checkCollision(balls[6]);
+  balls[0].checkCollision(balls[7]);
+  balls[0].checkCollision(balls[8]);
+  balls[0].checkCollision(balls[9]);
+  balls[0].checkCollision(balls[10]);
+  balls[0].checkCollision(balls[11]);
+  balls[0].checkCollision(balls[12]);
+  balls[0].checkCollision(balls[13]);
+  balls[0].checkCollision(balls[14]);
+  
   
   //The billiard table's socket.
   fill(0); 
@@ -77,63 +120,69 @@ void draw() {
   //bottom right
   ellipse(1500, 820, 140, 135);
   
+}
+ 
 
-  ball1.display();
-  ball2.display();
-  ball3.display();
-  ball4.display();
-  ball5.display();
-  ball6.display();
-  ball7.display();
-  ball8.display();
-  ball9.display();
-  ball10.display();
-  ball11.display();
-  ball12.display();
-  ball13.display();
-  ball14.display();
-  ball15.display();
-  ball16.display();
+  //ball1.display();
+  //ball2.display();
+  //ball3.display();
+  //ball4.display();
+  //ball5.display();
+  //ball6.display();
+  //ball7.display();
+  //ball8.display();
+  //ball9.display();
+  //ball10.display();
+  //ball11.display();
+  //ball12.display();
+  //ball13.display();
+  //ball14.display();
+  //ball15.display();
+  ////ball16.display();
   
  
-  ball1.moveBalls();
-  ball2.moveBalls();
-  ball3.moveBalls();
-  ball4.moveBalls();
-  ball5.moveBalls();
-  ball6.moveBalls();
-  ball7.moveBalls();
-  ball8.moveBalls();
-  ball9.moveBalls();
-  ball10.moveBalls();
-  ball11.moveBalls();
-  ball12.moveBalls();
-  ball13.moveBalls();
-  ball14.moveBalls();
-  ball15.moveBalls();
-  ball16.moveBalls();
+  //ball1.moveBalls();
+  //ball2.moveBalls();
+  //ball3.moveBalls();
+  //ball4.moveBalls();
+  //ball5.moveBalls();
+  //ball6.moveBalls();
+  //ball7.moveBalls();
+  //ball8.moveBalls();
+  //ball9.moveBalls();
+  //ball10.moveBalls();
+  //ball11.moveBalls();
+  //ball12.moveBalls();
+  //ball13.moveBalls();
+  //ball14.moveBalls();
+  //ball15.moveBalls();
+  //ball16.moveBalls();
   
-  ball1.ballScreenConstraint();
-  ball2.ballScreenConstraint();
-  ball3.ballScreenConstraint();
-  ball4.ballScreenConstraint();
-  ball5.ballScreenConstraint();
-  ball6.ballScreenConstraint();
-  ball7.ballScreenConstraint();
-  ball8.ballScreenConstraint();
-  ball9.ballScreenConstraint();
-  ball10.ballScreenConstraint();
-  ball11.ballScreenConstraint();
-  ball12.ballScreenConstraint();
-  ball13.ballScreenConstraint();
-  ball14.ballScreenConstraint();
-  ball15.ballScreenConstraint();
-  ball16.ballScreenConstraint();
+  //ball1.ballScreenConstraint();
+  //ball2.ballScreenConstraint();
+  //ball3.ballScreenConstraint();
+  //ball4.ballScreenConstraint();
+  //ball5.ballScreenConstraint();
+  //ball6.ballScreenConstraint();
+  //ball7.ballScreenConstraint();
+  //ball8.ballScreenConstraint();
+  //ball9.ballScreenConstraint();
+  //ball10.ballScreenConstraint();
+  //ball11.ballScreenConstraint();
+  //ball12.ballScreenConstraint();
+  //ball13.ballScreenConstraint();
+  //ball14.ballScreenConstraint();
+  //ball15.ballScreenConstraint();
+  //ball16.ballScreenConstraint();
   
-  ball1.ballCollisions(ball2);
-}
+  //ball1.ballCollisions(ball2);
+//}
 
+//void mousePressed() {
+//  Ball ball = new Ball(mouseX, mouseY, random(10, 60), 0, 0);
+//  ball1.moveBalls();
+//}
 
-void keyPressed() {
-  ball1.controlKeyPressed();
-}
+//void keyPressed() {
+//  ball1.controlKeyPressed();
+//}
