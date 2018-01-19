@@ -1,5 +1,4 @@
 /*
-
 Gavin Caras                       Sources: 
 Major Project                     https://processing.org/examples/circlecollision.html
 Billiard Game                     PVector movement class demo
@@ -13,7 +12,6 @@ Thing(s) still needs to be done:
 -purple ball collision detection
 -some balls overlapping
 -pool sockets
-
 */
 
 //Calling the Ball class.
