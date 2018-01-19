@@ -3,9 +3,12 @@ Gavin Caras                       Sources:
 Major Project                     https://processing.org/examples/circlecollision.html
 Billiard Game                     PVector movement class demo
                                   ballOOPwithCollisionDetection
+                                  
 Controls:
 q or Q for light poke
 w or W for strong poke
+
+*Should be in 1366 x 768 screen resolution*
 
 Thing(s) still needs to be done:
 -pool stick to target using mouseX & mouseY
@@ -73,7 +76,6 @@ void setup() {
   noCursor();
   smooth();
 }
-
 
 void draw() {
   //The billiard board.
