@@ -83,8 +83,9 @@ void draw() {
     billiardBalls.ballscreenConstraint();
   }
   
-  //Calling the Ball class collisions
-  //Ball ---- #0
+  //Calling the Ball class collisions:
+  
+  //Ball ------------- #0
   balls[0].checkCollision(balls[1]);
   balls[0].checkCollision(balls[2]);
   balls[0].checkCollision(balls[3]);
@@ -100,6 +101,231 @@ void draw() {
   balls[0].checkCollision(balls[13]);
   balls[0].checkCollision(balls[14]);
   
+  //Ball ------------- #1
+  balls[1].checkCollision(balls[0]);
+  balls[1].checkCollision(balls[2]);
+  balls[1].checkCollision(balls[3]);
+  balls[1].checkCollision(balls[4]);
+  balls[1].checkCollision(balls[5]);
+  balls[1].checkCollision(balls[6]);
+  balls[1].checkCollision(balls[7]);
+  balls[1].checkCollision(balls[8]);
+  balls[1].checkCollision(balls[9]);
+  balls[1].checkCollision(balls[10]);
+  balls[1].checkCollision(balls[11]);
+  balls[1].checkCollision(balls[12]);
+  balls[1].checkCollision(balls[13]);
+  balls[1].checkCollision(balls[14]);
+  
+  //Ball ------------- #2
+  balls[2].checkCollision(balls[0]);
+  balls[2].checkCollision(balls[1]);
+  balls[2].checkCollision(balls[3]);
+  balls[2].checkCollision(balls[4]);
+  balls[2].checkCollision(balls[5]);
+  balls[2].checkCollision(balls[6]);
+  balls[2].checkCollision(balls[7]);
+  balls[2].checkCollision(balls[8]);
+  balls[2].checkCollision(balls[9]);
+  balls[2].checkCollision(balls[10]);
+  balls[2].checkCollision(balls[11]);
+  balls[2].checkCollision(balls[12]);
+  balls[2].checkCollision(balls[13]);
+  balls[2].checkCollision(balls[14]);
+  
+  //Ball ------------- #3
+  balls[3].checkCollision(balls[0]);
+  balls[3].checkCollision(balls[1]);
+  balls[3].checkCollision(balls[2]);
+  balls[3].checkCollision(balls[4]);
+  balls[3].checkCollision(balls[5]);
+  balls[3].checkCollision(balls[6]);
+  balls[3].checkCollision(balls[7]);
+  balls[3].checkCollision(balls[8]);
+  balls[3].checkCollision(balls[9]);
+  balls[3].checkCollision(balls[10]);
+  balls[3].checkCollision(balls[11]);
+  balls[3].checkCollision(balls[12]);
+  balls[3].checkCollision(balls[13]);
+  balls[3].checkCollision(balls[14]);
+  
+  //Ball ------------- #4
+  balls[4].checkCollision(balls[0]);
+  balls[4].checkCollision(balls[1]);
+  balls[4].checkCollision(balls[2]);
+  balls[4].checkCollision(balls[3]);
+  balls[4].checkCollision(balls[5]);
+  balls[4].checkCollision(balls[6]);
+  balls[4].checkCollision(balls[7]);
+  balls[4].checkCollision(balls[8]);
+  balls[4].checkCollision(balls[9]);
+  balls[4].checkCollision(balls[10]);
+  balls[4].checkCollision(balls[11]);
+  balls[4].checkCollision(balls[12]);
+  balls[4].checkCollision(balls[13]);
+  balls[4].checkCollision(balls[14]);
+  
+  //Ball ------------- #5
+  balls[5].checkCollision(balls[0]);
+  balls[5].checkCollision(balls[1]);
+  balls[5].checkCollision(balls[2]);
+  balls[5].checkCollision(balls[3]);
+  balls[5].checkCollision(balls[4]);
+  balls[5].checkCollision(balls[6]);
+  balls[5].checkCollision(balls[7]);
+  balls[5].checkCollision(balls[8]);
+  balls[5].checkCollision(balls[9]);
+  balls[5].checkCollision(balls[10]);
+  balls[5].checkCollision(balls[11]);
+  balls[5].checkCollision(balls[12]);
+  balls[5].checkCollision(balls[13]);
+  balls[5].checkCollision(balls[14]);
+  
+  //Ball ------------- #6
+  balls[6].checkCollision(balls[0]);
+  balls[6].checkCollision(balls[1]);
+  balls[6].checkCollision(balls[2]);
+  balls[6].checkCollision(balls[3]);
+  balls[6].checkCollision(balls[4]);
+  balls[6].checkCollision(balls[5]);
+  balls[6].checkCollision(balls[7]);
+  balls[6].checkCollision(balls[8]);
+  balls[6].checkCollision(balls[9]);
+  balls[6].checkCollision(balls[10]);
+  balls[6].checkCollision(balls[11]);
+  balls[6].checkCollision(balls[12]);
+  balls[6].checkCollision(balls[13]);
+  balls[6].checkCollision(balls[14]);
+  
+  //Ball ------------- #7
+  balls[7].checkCollision(balls[0]);
+  balls[7].checkCollision(balls[1]);
+  balls[7].checkCollision(balls[2]);
+  balls[7].checkCollision(balls[3]);
+  balls[7].checkCollision(balls[4]);
+  balls[7].checkCollision(balls[5]);
+  balls[7].checkCollision(balls[6]);
+  balls[7].checkCollision(balls[8]);
+  balls[7].checkCollision(balls[9]);
+  balls[7].checkCollision(balls[10]);
+  balls[7].checkCollision(balls[11]);
+  balls[7].checkCollision(balls[12]);
+  balls[7].checkCollision(balls[13]);
+  balls[7].checkCollision(balls[14]);
+  
+  //Ball ------------- #8
+  balls[8].checkCollision(balls[0]);
+  balls[8].checkCollision(balls[1]);
+  balls[8].checkCollision(balls[2]);
+  balls[8].checkCollision(balls[3]);
+  balls[8].checkCollision(balls[4]);
+  balls[8].checkCollision(balls[5]);
+  balls[8].checkCollision(balls[6]);
+  balls[8].checkCollision(balls[7]);
+  balls[8].checkCollision(balls[9]);
+  balls[8].checkCollision(balls[10]);
+  balls[8].checkCollision(balls[11]);
+  balls[8].checkCollision(balls[12]);
+  balls[8].checkCollision(balls[13]);
+  balls[8].checkCollision(balls[14]);
+  
+  //Ball ------------- #9
+  balls[9].checkCollision(balls[0]);
+  balls[9].checkCollision(balls[1]);
+  balls[9].checkCollision(balls[2]);
+  balls[9].checkCollision(balls[3]);
+  balls[9].checkCollision(balls[4]);
+  balls[9].checkCollision(balls[5]);
+  balls[9].checkCollision(balls[6]);
+  balls[9].checkCollision(balls[7]);
+  balls[9].checkCollision(balls[8]);
+  balls[9].checkCollision(balls[10]);
+  balls[9].checkCollision(balls[11]);
+  balls[9].checkCollision(balls[12]);
+  balls[9].checkCollision(balls[13]);
+  balls[9].checkCollision(balls[14]);
+  
+  //Ball ------------- #10
+  balls[10].checkCollision(balls[0]);
+  balls[10].checkCollision(balls[1]);
+  balls[10].checkCollision(balls[2]);
+  balls[10].checkCollision(balls[3]);
+  balls[10].checkCollision(balls[4]);
+  balls[10].checkCollision(balls[5]);
+  balls[10].checkCollision(balls[6]);
+  balls[10].checkCollision(balls[7]);
+  balls[10].checkCollision(balls[8]);
+  balls[10].checkCollision(balls[9]);
+  balls[10].checkCollision(balls[11]);
+  balls[10].checkCollision(balls[12]);
+  balls[10].checkCollision(balls[13]);
+  balls[10].checkCollision(balls[14]);
+  
+  //Ball ------------- #11
+  balls[11].checkCollision(balls[0]);
+  balls[11].checkCollision(balls[1]);
+  balls[11].checkCollision(balls[2]);
+  balls[11].checkCollision(balls[3]);
+  balls[11].checkCollision(balls[4]);
+  balls[11].checkCollision(balls[5]);
+  balls[11].checkCollision(balls[6]);
+  balls[11].checkCollision(balls[7]);
+  balls[11].checkCollision(balls[8]);
+  balls[11].checkCollision(balls[9]);
+  balls[11].checkCollision(balls[10]);
+  balls[11].checkCollision(balls[12]);
+  balls[11].checkCollision(balls[13]);
+  balls[11].checkCollision(balls[14]);
+  
+  //Ball ------------- #12
+  balls[12].checkCollision(balls[0]);
+  balls[12].checkCollision(balls[1]);
+  balls[12].checkCollision(balls[2]);
+  balls[12].checkCollision(balls[3]);
+  balls[12].checkCollision(balls[4]);
+  balls[12].checkCollision(balls[5]);
+  balls[12].checkCollision(balls[6]);
+  balls[12].checkCollision(balls[7]);
+  balls[12].checkCollision(balls[8]);
+  balls[12].checkCollision(balls[9]);
+  balls[12].checkCollision(balls[10]);
+  balls[12].checkCollision(balls[11]);
+  balls[12].checkCollision(balls[13]);
+  balls[12].checkCollision(balls[14]);
+  
+  //Ball ------------- #13
+  balls[13].checkCollision(balls[0]);
+  balls[13].checkCollision(balls[1]);
+  balls[13].checkCollision(balls[2]);
+  balls[13].checkCollision(balls[3]);
+  balls[13].checkCollision(balls[4]);
+  balls[13].checkCollision(balls[5]);
+  balls[13].checkCollision(balls[6]);
+  balls[13].checkCollision(balls[7]);
+  balls[13].checkCollision(balls[8]);
+  balls[13].checkCollision(balls[9]);
+  balls[13].checkCollision(balls[10]);
+  balls[13].checkCollision(balls[11]);
+  balls[13].checkCollision(balls[12]);
+  balls[13].checkCollision(balls[14]);
+  
+  //Ball ------------- #14
+  balls[14].checkCollision(balls[0]);
+  balls[14].checkCollision(balls[1]);
+  balls[14].checkCollision(balls[2]);
+  balls[14].checkCollision(balls[3]);
+  balls[14].checkCollision(balls[4]);
+  balls[14].checkCollision(balls[5]);
+  balls[14].checkCollision(balls[6]);
+  balls[14].checkCollision(balls[7]);
+  balls[14].checkCollision(balls[8]);
+  balls[14].checkCollision(balls[9]);
+  balls[14].checkCollision(balls[10]);
+  balls[14].checkCollision(balls[11]);
+  balls[14].checkCollision(balls[12]);
+  balls[14].checkCollision(balls[13]);
+  
+
   
   //The billiard table's socket.
   fill(0); 
