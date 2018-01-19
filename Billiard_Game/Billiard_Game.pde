@@ -330,8 +330,6 @@ void draw() {
   balls[14].collisionChecking(balls[12]);
   balls[14].collisionChecking(balls[13]);
 
-
-
   //The billiard table's socket.
   fill(0); 
   noStroke(); 
