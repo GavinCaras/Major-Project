@@ -1,19 +1,18 @@
-class Ball  {
+class Ball {
   //Variables
-  
-  PVector velocity, location;
+  PVector velocity, location, acceleration, direction;
   float x, y, radius, magnitude;
   int r, g, b;
 
   //Constructor(s)
   Ball(float x, float y, float _radius, int _r, int _g, int _b) {
-    
-    //Applying Vectors 
+
+    //Applying Vectors. 
     location = new PVector(x, y);
-    velocity = PVector.random2D();
-    //acceleration = new PVector(0, 0);
-    //direction = new PVector(1,0);
-    
+    velocity = new PVector();
+    acceleration = new PVector(0, 0);
+    direction = new PVector(1, 0);
+
     radius = _radius;
     magnitude = radius*.1;
     r = _r;
@@ -22,47 +21,43 @@ class Ball  {
   }
   //Behaviour(s)
   void display() {
-    //pushMatrix();
-    //translate(location.x, location.y);
     stroke(.5);
     fill(r, g, b);
     ellipse(location.x, location.y, radius *1.5, radius *1.5);
-    //popMatrix();
   }
-  
+
   void move() {
     //Adding Vectors.
     location.add(velocity);
-    //velocity.add(acceleration);
-    //acceleration.set(0, 0);
-    
-
-    //ballScreenConstraint();
+    velocity.add(acceleration);
+    acceleration.set(0, 0);
 
     //Friction of the Balls to slowly stop.
-    //velocity.div(1.100);
+    velocity.div(1.100);
   }
   
-    void controlKeyPressed() {    
+  //White ball controls:
+  void controlKeyPressed() {    
     //Normal poke.
     if (key == 'q' || key == 'Q') {
       PVector poke = new PVector(0, 0);
-      //poke = direction.copy();
+      poke = direction.copy();
       poke.normalize();
       poke.mult(100);
-      //acceleration = poke;
+      acceleration = poke;
     }
     //Power poke.
     else if (key == 'w' || key == 'W') {
       PVector poke = new PVector(0, 0);
-      //poke = direction.copy();
+      poke = direction.copy();
       poke.normalize();
       poke.mult(200);
-      //acceleration = poke;
+      acceleration = poke;
     }
   }
   
-    void ballscreenConstraint() {
+  //Making sure that all balls stays inside the screen.
+  void ballscreenConstraint() {
     if (location.x > width-radius) {
       location.x = width-radius;
       velocity.x *= -1;
@@ -77,16 +72,16 @@ class Ball  {
       velocity.y *= -1;
     }
   }
-  
-  void checkCollision(Ball other) {
 
-    // Get distances between the balls components
+  void collisionChecking(Ball other) {
+
+    //The distances between the billiardBalls components.
     PVector distanceVect = PVector.sub(other.location, location);
 
-    // Calculate magnitude of the vector separating the balls
+    //Calculates the magnitude that separates the billiardBalls.
     float distanceVectMag = distanceVect.mag();
 
-    // Minimum distance before they are touching
+    //Minimum distance before the touching of the billiardBalls.
     float minDistance = radius + other.radius;
 
     if (distanceVectMag < minDistance) {
@@ -96,106 +91,72 @@ class Ball  {
       other.location.add(correctionVector);
       location.sub(correctionVector);
 
-      // get angle of distanceVect
+      //Calculating the angle of PVector distanceVect.
       float theta  = distanceVect.heading();
-      // precalculate trig values
+      
+      //Making the sin and cosine.
       float sine = sin(theta);
       float cosine = cos(theta);
 
-      /* bTemp will hold rotated ball positions. You 
-       just need to worry about bTemp[1] position*/
-      PVector[] bTemp = {
+      //Holds the rotated billiardBalls' positions.      
+      PVector[] bHold = {
         new PVector(), new PVector()
       };
 
-      /* this ball's position is relative to the other
-       so you can use the vector between them (bVect) as the 
-       reference point in the rotation expressions.
-       bTemp[0].position.x and bTemp[0].position.y will initialize
-       automatically to 0.0, which is what you want
-       since b[1] will rotate around b[0] */
-      bTemp[1].x  = cosine * distanceVect.x + sine * distanceVect.y;
-      bTemp[1].y  = cosine * distanceVect.y - sine * distanceVect.x;
+       //
+      bHold[1].x  = cosine * distanceVect.x + sine * distanceVect.y;
+      bHold[1].y  = cosine * distanceVect.y - sine * distanceVect.x;
 
-      // rotate Temporary velocities
-      PVector[] vTemp = {
+      //Making the rotation of temporary velocities of billiardBalls.
+      PVector[] ballsTempv = {
         new PVector(), new PVector()
       };
 
-      vTemp[0].x  = cosine * velocity.x + sine * velocity.y;
-      vTemp[0].y  = cosine * velocity.y - sine * velocity.x;
-      vTemp[1].x  = cosine * other.velocity.x + sine * other.velocity.y;
-      vTemp[1].y  = cosine * other.velocity.y - sine * other.velocity.x;
+      ballsTempv[0].x  = cosine * velocity.x + sine * velocity.y;
+      ballsTempv[0].y  = cosine * velocity.y - sine * velocity.x;
+      ballsTempv[1].x  = cosine * other.velocity.x + sine * other.velocity.y;
+      ballsTempv[1].y  = cosine * other.velocity.y - sine * other.velocity.x;
 
-      /* Now that velocities are rotated, you can use 1D
-       conservation of momentum equations to calculate 
-       the final velocity along the x-axis. */
-      PVector[] vFinal = {  
+      //Calculates the final velocity on the X-axis.
+      PVector[] finalVelocity = {  
         new PVector(), new PVector()
       };
 
-      // final rotated velocity for b[0]
-      vFinal[0].x = ((magnitude - other.magnitude) * vTemp[0].x + 2 * other.magnitude * vTemp[1].x) / (magnitude + other.magnitude);
-      vFinal[0].y = vTemp[0].y;
+      //Final rotated velocity for billiardBalls[0]
+      finalVelocity[0].x = ((magnitude - other.magnitude) * ballsTempv[0].x + 2 * other.magnitude * ballsTempv[1].x) / (magnitude + other.magnitude);
+      finalVelocity[0].y = ballsTempv[0].y;
 
-      // final rotated velocity for b[0]
-      vFinal[1].x = ((other.magnitude - magnitude) * vTemp[1].x + 2 * magnitude * vTemp[0].x) / (magnitude + other.magnitude);
-      vFinal[1].y = vTemp[1].y;
+      //Final rotated velocity for billiardBalls[1]
+      finalVelocity[1].x = ((other.magnitude - magnitude) * ballsTempv[1].x + 2 * magnitude * ballsTempv[0].x) / (magnitude + other.magnitude);
+      finalVelocity[1].y = ballsTempv[1].y;
 
-      // hack to avoid clumping
-      bTemp[0].x += vFinal[0].x;
-      bTemp[1].x += vFinal[1].x;
+      //Making sure to avoid clusters of billiardBalls.
+      bHold[0].x += finalVelocity[0].x;
+      bHold[1].x += finalVelocity[1].x;
 
-      /* Rotate ball positions and velocities back
-       Reverse signs in trig expressions to rotate 
-       in the opposite direction */
-      // rotate balls
-      PVector[] bFinal = { 
+     //Reversing the trig to rotate the billiardBalls in the opposite direction
+     //when they collide.
+      PVector[] ballsFinal = { 
         new PVector(), new PVector()
       };
 
-      bFinal[0].x = cosine * bTemp[0].x - sine * bTemp[0].y;
-      bFinal[0].y = cosine * bTemp[0].y + sine * bTemp[0].x;
-      bFinal[1].x = cosine * bTemp[1].x - sine * bTemp[1].y;
-      bFinal[1].y = cosine * bTemp[1].y + sine * bTemp[1].x;
+      ballsFinal[0].x = cosine * bHold[0].x - sine * bHold[0].y;
+      ballsFinal[0].y = cosine * bHold[0].y + sine * bHold[0].x;
+      ballsFinal[1].x = cosine * bHold[1].x - sine * bHold[1].y;
+      ballsFinal[1].y = cosine * bHold[1].y + sine * bHold[1].x;
 
-      // update balls to screen position
-      other.x = location.x + bFinal[1].x;
-      other.location.y = location.y + bFinal[1].y;
+      //PVector location updates billiardBalls.
+      other.location.x = location.x + ballsFinal[1].x;
+      other.location.y = location.y + ballsFinal[1].y;
+      
+      //Adding the Location. 
+      location.add(ballsFinal[0]);
 
-      location.add(bFinal[0]);
-
-      // update velocities
-      velocity.x = cosine * vFinal[0].x - sine * vFinal[0].y;
-      velocity.y = cosine * vFinal[0].y + sine * vFinal[0].x;
-      other.velocity.x = cosine * vFinal[1].x - sine * vFinal[1].y;
-      other.velocity.y = cosine * vFinal[1].y + sine * vFinal[1].x;
+      //Updating the velocities of the billiardBalls.
+      velocity.x = cosine * finalVelocity[0].x - sine * finalVelocity[0].y;
+      velocity.y = cosine * finalVelocity[0].y + sine * finalVelocity[0].x;
+      other.velocity.x = cosine * finalVelocity[1].x - sine * finalVelocity[1].y;
+      other.velocity.y = cosine * finalVelocity[1].y + sine * finalVelocity[1].x;
     }
   }
 }
-  //void ballScreenConstraint() {
-  //  //Balls staying on screen
-  //  if ((location.x + radius >= width/1.06) || (location.x - radius <= 0)) {
-  //    velocity.x = velocity.x * -1;
-  //  }
-  //  if ((location.y + radius >= height/1.06) || (location.y - radius <= 0)) {
-  //    velocity.y = velocity.y * -1;
-  //  }
-  //}
-  
-  //void ballCollisions(Ball anyBall) {
-  //  //Ball collisions
-  //  float distanceBetweenBalls = dist(location.x, location.y, anyBall.x, anyBall.y);
-  //  float sumOfRadii = radius + anyBall.radius;
-    
-  //  if (distanceBetweenBalls <= sumOfRadii) { 
-  //    float tempdx = velocity.x;
-  //    float tempdy = velocity.y;
-      
-  //    velocity.x = anyBall.velocity.x;
-  //    velocity.y = anyBall.velocity.y;
-      
-  //    anyBall.velocity.x = tempdx;
-  //    anyBall.velocity.y = tempdy;
-  //  }
-  //}  
